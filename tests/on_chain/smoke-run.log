@@ -1,0 +1,95 @@
+[keeper] starting 2026-10-19T05:54:27.330Z
+[05:54:33] A  0xfF8c88d881AeeBf55306070755274Bf59362eebF  A, who writes W1 (the starter guide) and deploys both contracts
+           B  0xDdDEf6BE78e1426191dae8746846449874Ca5dEa  B, who writes W2 (the plaited loaf, which shares only W4's topic)
+           C  0x94125Fa79a9501a2ab507c66122e51F6B5dB2770  C, who writes W3 (the hydration table) and is left out of W4
+           D  0x38743590B226b8D4D79366770eef395f23F5233D  D, who writes W4 (the weekend loaf)
+           S  0x8E219fA8BD52211e02056a91E88ccBf6a6d51a32  S, a stranger, who tries to claim and buys
+
+[05:54:33] ---- 1: deploy Lineage, then the Bookstall bound to it, and name it the consumer
+      [05:55:16] A deploy lineage  0xef2eeb00343d2271ff5212b3dc9ac833d3e5d2bb96394f1ffd9af07c0ee58777  3 agree, 0 disagree, 2 idle  SUCCESS  0x9D0C87720e03D55f0C568a009c747eD9DA70be0d
+      [05:55:57] A deploy bookstall  0x3e9a3d6702daac941e428cc18bc469c6057773d651b363831f0fde7767baa0cc  5 agree, 0 disagree, 0 idle  SUCCESS  0x43fA819C117b99F838bDc34D663FE1DF3b69Ab82
+      Lineage at 0x9D0C87720e03D55f0C568a009c747eD9DA70be0d · Bookstall at 0x43fA819C117b99F838bDc34D663FE1DF3b69Ab82
+      [05:56:43] A lineage.register_consumer(0x43fA819C117b99F838bD)  0xd4d2c3d9b3d58c59a2de315dc813801fcbad742c470763e07760dba4bcafbc83  3 agree, 0 disagree, 2 idle  SUCCESS
+PASS  A, the deployer, names the Bookstall as Lineage's consumer  - 3 agree, 0 disagree, 2 idle  {"ok": true, "consumer": "0x43fa819c117b99f838bdc34d663fe1df3b69ab82"}
+PASS  the Bookstall is bound to the Lineage just deployed and sells only judged works  - {"lineage":"0x9d0c87720e03d55f0c568a009c747ed9da70be0d","sells_only":"judged"}
+
+[05:56:45] ---- 2: four works; W4's listed sources are judged
+      [05:57:21] A lineage.deposit() +0.2 GEN  0x500e2d04116ff578f9b47ef48d7a5dd76bad2c45139cd8229ccca6875b95fe85  5 agree, 0 disagree, 0 idle  SUCCESS
+PASS  A deposits 0.2 GEN of credit, in a call that asks no model  - 5 agree, 0 disagree, 0 idle  {"ok": true, "deposited": "200000000000000000", "credit": "200000000000000000"}
+      [05:58:03] B lineage.deposit() +0.2 GEN  0x9ff35d4fcf95b22a26e1ff071ac65785e2916da149c3674e10f54a81c60a35ba  5 agree, 0 disagree, 0 idle  SUCCESS
+PASS  B deposits 0.2 GEN of credit, in a call that asks no model  - 5 agree, 0 disagree, 0 idle  {"ok": true, "deposited": "200000000000000000", "credit": "200000000000000000"}
+      [05:58:56] C lineage.deposit() +0.25 GEN  0x3fdf325e9f8d6e78d62126e6e4be232b062a73567ca1ef4b48590bcd42aa1158  3 agree, 0 disagree, 2 idle  SUCCESS
+PASS  C deposits 0.25 GEN of credit, in a call that asks no model  - 3 agree, 0 disagree, 2 idle  {"ok": true, "deposited": "250000000000000000", "credit": "250000000000000000"}
+      [05:59:40] D lineage.deposit() +0.2 GEN  0xdf397a93b92c7ffc16a2821b8e8fa3c96aca548062fd6f4055e9464740ea7a9f  3 agree, 0 disagree, 2 idle  SUCCESS
+PASS  D deposits 0.2 GEN of credit, in a call that asks no model  - 3 agree, 0 disagree, 2 idle  {"ok": true, "deposited": "200000000000000000", "credit": "200000000000000000"}
+      [06:00:21] A lineage.submit_work(Keeping a wild yeast s, A wild yeast starter i, [])  0x52ecf1da78796d4884a6d4093da670c922af51ffdfd4044ab2b250360452ded1  5 agree, 0 disagree, 0 idle  SUCCESS
+PASS  A registers W1, "Keeping a wild yeast starter", with no sources: nothing is asked and its lineage is empty  - 5 agree, 0 disagree, 0 idle  {"ok": true, "work": "W1", "listed": [], "mask": "", "status": "judged", "readings": {}, "bond": "200000000000
+      [06:01:03] B lineage.submit_work(Plaiting an enriched l, An enriched dough is o, [])  0x1cfc746f3c7d4f7d6dc3c0fde80b15126c687cde6a785b974a7cdfb2cb0839a5  4 agree, 0 disagree, 1 idle  SUCCESS
+PASS  B registers W2, "Plaiting an enriched loaf", with no sources: nothing is asked and its lineage is empty  - 4 agree, 0 disagree, 1 idle  {"ok": true, "work": "W2", "listed": [], "mask": "", "status": "judged", "readings": {}, "bond": "200000000000
+      [06:01:52] C lineage.submit_work(Dough hydration at a g, Hydration is the weigh, [])  0x3988c6166e753389b092776503e3a38f4887dba86b5113964a91919c44139f1c  3 agree, 0 disagree, 2 idle  SUCCESS
+PASS  C registers W3, "Dough hydration at a glance", with no sources: nothing is asked and its lineage is empty  - 3 agree, 0 disagree, 2 idle  {"ok": true, "work": "W3", "listed": [], "mask": "", "status": "judged", "readings": {}, "bond": "200000000000
+      [06:02:47] D lineage.submit_work(Your first weekend sou, This is a plan for you, ["W1","W2"])  0x0841cea4663bdc38dcf153691cfeaa36427be5b60463b37a2473df4d32399d9a  3 agree, 0 disagree, 2 idle  SUCCESS
+PASS  D registers W4 listing W1 and W2: the four askings agree on mask "10", W1 drawn on and W2 not  - 3 agree, 0 disagree, 2 idle  mask 10  readings 10,10,01,01
+PASS  and D's 0.2 GEN author bond is staked from credit, with no value sent  - {"d":"0"}
+
+[06:02:48] ---- 3: the claims
+      [06:03:27] S lineage.claim(W4, W3)  0x75fdeb2e338f1f32d0416db3ad0915dee2acc05071f36031797181522b77d82d  4 agree, 0 disagree, 1 idle  ERROR
+PASS  S, who wrote nothing, claims W4 draws on W3 and is refused before any model is asked  - 4 agree, 0 disagree, 1 idle  [EXPECTED] only the author of W3 may claim that a work draws on it
+      [06:04:07] A lineage.claim(W4, W1)  0xb61400784415982b09c18b3f5d1834f530f6bf16f6e56228f6607153b6d03778  5 agree, 0 disagree, 0 idle  ERROR
+PASS  A claims W4 draws on W1 and is refused: W4 lists it and its lineage round judged it  - 5 agree, 0 disagree, 0 idle  [EXPECTED] W4 already lists W1; its lineage round judged that source
+      [06:05:27] C lineage.claim(W4, W3)  0x4bd4aa5dd703ceeac5cda6e35b1955691acd1190720af286bf11a65f4a5b4d41  3 agree, 0 disagree, 2 idle  SUCCESS
+PASS  C claims W4 draws on W3: the four askings read it drawn, and W3 joins the royalty set  - 3 agree, 0 disagree, 2 idle  drawn  readings yes,yes,no,no
+PASS  and D's 0.2 GEN author bond goes to C in the same transaction, C's claim bond still in credit  - {"c":"200000000000000000","d":"0"}
+
+[06:05:28] ---- 4: the Bookstall sells and splits the royalty
+      [06:06:09] D bookstall.offer(W4, 1000000000000000000)  0x201e9bd594d66ae7ee7d6bbc17a7438bc8abcb7f7ac06b1411f49ebdedbd7e6e  3 agree, 0 disagree, 2 idle  SUCCESS
+PASS  D offers W4 at 1 GEN; the Bookstall reads it judged on Lineage  - 3 agree, 0 disagree, 2 idle  {"ok": true, "work": "W4", "price": "1000000000000000000", "status_on_lineage": "judged"}
+      [06:06:49] S bookstall.buy(W4) +1 GEN  0x7d1472f5048543739dd051fbe395124008d64439f8f17c8154b0c07562790054  3 agree, 0 disagree, 2 idle  SUCCESS
+PASS  S buys W4 for 1 GEN: 0.3 GEN of royalty split over A and C, 0.15 GEN each  - 3 agree, 0 disagree, 2 idle  {"ok": true, "work": "W4", "price": "1000000000000000000", "royalty": "300000000000000000", "share": "150000000000000000", "paid_to": ["0xff
+PASS  and in the same transaction A gains 0.15, C 0.15, D 0.70, and B nothing  - {"a":"150000000000000000","b":"0","c":"150000000000000000","d":"700000000000000000","s":"-1000000000000000000"}
+      [06:07:27] A bookstall.offer(W1, 500000000000000000)  0x53e4802fba57fc8b29a6f90b739f8fe7fd752d8bef73d2b2192241d47d269db5  3 agree, 0 disagree, 2 idle  SUCCESS
+      [06:08:04] S bookstall.buy(W1) +0.5 GEN  0x17fe589a34b3c3076cb18f7dd728d8a50aea98382ff05efa4a3050adb6db1a5c  3 agree, 0 disagree, 2 idle  SUCCESS
+PASS  W1, which lists no source, sells at 0.5 GEN and its author is paid all of it  - 3 agree, 0 disagree, 2 idle  {"a":"500000000000000000","s":"-500000000000000000"}
+
+[06:08:05] ---- 5: the routes out, and the refusals
+      [06:08:44] B bookstall.offer(W2, 500000000000000000)  0x3464c7dc3c5067ecb4bc7b34d5cf367751e30bfbee16c76e29d8bd9978f806d5  3 agree, 0 disagree, 2 idle  SUCCESS
+PASS  B offers W2 at 0.5 GEN  - 3 agree, 0 disagree, 2 idle  {"ok": true, "work": "W2", "price": "500000000000000000", "status_on_lineage": "
+      [06:09:29] B lineage.retract(W2)  0x3752816a6f20db10a454ccbf6161d3bfa9ef7ae85fc83b452760b75fdbeb7440  3 agree, 0 disagree, 2 idle  SUCCESS
+PASS  B retracts W2: Lineage reads the Bookstall, finds it never sold, and its 0.2 GEN bond comes back to B's credit  - 3 agree, 0 disagree, 2 idle  {"ok": true, "work": "W2", "status": "retracted", "returned": "200000000000000000", "forfeited": "0", "to_credit_of": []
+      [06:10:09] S bookstall.buy(W2) +0.5 GEN  0xd0ef14a64992b4cf9de383a8119b138a5ddacc466c177a205cb9fcb301721444  3 agree, 0 disagree, 2 idle  SUCCESS
+PASS  S tries to buy the retracted W2: the Bookstall reads "retracted" from Lineage, refuses, and returns the 0.5 GEN  - 3 agree, 0 disagree, 2 idle  W2 is retracted on Lineage, not judged: its author retracted it on Lineage; it is never sold here
+      [06:10:49] D lineage.retract(W4)  0x39ee90330104ee79059ac010baf77a9ad1dd83d3058b32035937720cd558bb8e  3 agree, 0 disagree, 2 idle  ERROR
+PASS  D tries to retract W4 and Lineage refuses: the Bookstall says it was sold  - 3 agree, 0 disagree, 2 idle  [EXPECTED] W4 has been sold 1 times through the registered consumer; a sold work is not retracted
+      [06:11:36] B lineage.withdraw(200000000000000000)  0xa2d83eb086464c76dfaaab78728919f77730ab0a7a3be3deff4c4efa25ea1c6a  3 agree, 0 disagree, 2 idle  SUCCESS
+PASS  B withdraws the 0.2 GEN its retracted work returned to credit  - 3 agree, 0 disagree, 2 idle  {"ok": true, "returned": "200000000000000000", "credit": "0"}
+      [06:12:15] C lineage.withdraw(50000000000000000)  0x5c4a808311b58d6f929d8f6788007b7dfcbaec00d6432a5b3a2d29518c43d506  3 agree, 0 disagree, 2 idle  SUCCESS
+PASS  C withdraws the 0.05 GEN claim bond its drawn claim left in credit  - 3 agree, 0 disagree, 2 idle  {"ok": true, "returned": "50000000000000000", "credit": "0"}
+
+[06:12:16] ---- 6: the views, the code, and the money
+PASS  work(W4): judged, mask 10, W3 added by a claim, royalty to A and C, its bond with C  - {"status":"judged","mask":"10","added":["W3"],"bond_state":"to_claimant"}
+PASS  royalty(W4): W1 listed, W3 claimed  - [{"source":"W1","author":"0xff8c88d881aeebf55306070755274bf59362eebf","how":"listed"},{"source":"W3","author":"0x94125fa79a9501a2ab507c66122e51f6b5db2770","how":"claimed"}]
+PASS  claims_of(W4, 0, 20): one judged claim, drawn, by C  - [{"claim":"W4:W3","n":1,"source":"W3","claimant":"0x94125fa79a9501a2ab507c66122e51f6b5db2770","verdict":"drawn","bond":"50000000000000000","won":"200000000000000000","to_author":"0","at":1792389850}]
+PASS  work(W2): retracted, not sellable, its bond returned  - {"status":"retracted","bond_state":"returned"}
+PASS  works(0, 20): four works, a page of at most 20  - [["W1","judged",""],["W2","retracted",""],["W3","judged",""],["W4","judged","10"]]
+PASS  text(W4) is the text that was registered  - 1256 characters
+PASS  credit(B): nothing left after the withdraw  - {"who":"0xdddef6be78e1426191dae8746846449874ca5dea","credit":"0"}
+PASS  stats(): four works, three judged, one retracted, one drawn claim; A's and C's bonds still held  - {"works":4,"judged":3,"unclear":0,"retracted":1,"rereads":0,"claims":1,"drawn":1,"not_drawn":0,"unclear_claims":0,"displaced":0,"refused":0,"bonds_held":"400000000000000000","credits_held":"0","forfeited_total":"200000000000000000","fined_total":"0","balance_owed":"400000000000000000","owner":"0xff8c88d881aeebf55306070755274bf59362eebf","consumer":"0x43fa819c117b99f838bdc34d663fe1df3b69ab82"}
+PASS  rules(): both questions word for word, both combine rules, the money and the limits  - value,lineage_questions,lineage_askings,lineage_combine,claim_questions,claim_askings,claim_combine,compared,readings,not_asked,money,settlement,seats,registered_once,who,limits,untrusted
+PASS  listing(W4): one sale, 0.70 GEN to the author, 0.30 GEN of royalty paid  - {"work":"W4","seller":"0x38743590b226b8d4d79366770eef395f23f5233d","price":"1000000000000000000","sales":1,"to_author":"700000000000000000","royalty_paid":"300000000000000000"}
+PASS  holding(W4, S): S holds a copy  - {"work":"W4","who":"0x8e219fa8bd52211e02056a91e88ccbf6a6d51a32","holds":true,"price":"1000000000000000000","payees":2,"share":"150000000000000000","to_author":"700000000000000000","seller":"0x38743590b226b8d4d79366770eef395f23f5233d"}
+PASS  sales_of(W4): what Lineage read before it refused the retract  - {"work":"W4","sales":1}
+PASS  stall(): two sales, one refused, nothing held  - {"lineage":"0x9d0c87720e03d55f0c568a009c747ed9da70be0d","offers":3,"sales":2,"refused":1,"paid_total":"1500000000000000000","royalty_total":"300000000000000000","sells_only":"judged","royalty_bps":3000,"max_royalty_set":6,"price_atto":["100000000000000000","20000000000000000000"]}
+PASS  the Lineage contract holds exactly what it owes: the two author bonds still behind W1 and W3  - 400000000000000000
+PASS  the Bookstall holds nothing  - 0
+PASS  the code deployed at 0x9D0C87720e03D55f0C568a009c747eD9DA70be0d is byte for byte contracts/lineage.py  - 72235 bytes, sha256 9537e24cf1d39fb24c1e5c83f1059f78b0f6ae8929c5f3a7e64ba52c3795480c
+PASS  the code deployed at 0x43fA819C117b99F838bDc34D663FE1DF3b69Ab82 is byte for byte contracts/fixtures/bookstall.py  - 16236 bytes, sha256 572d03c59811196ae5a1f8025780e67d2429db0d74be5849f1b4462c2e810a15
+PASS  over the run every account ends exactly where the receipts say  - A 0.45 (receipts 0.45)  B 0 (receipts 0)  C 0.15 (receipts 0.15)  D 0.5 (receipts 0.5)  S -1.5 (receipts -1.5)
+
+43 passed, 0 failed
+Lineage:   0x9D0C87720e03D55f0C568a009c747eD9DA70be0d
+Bookstall: 0x43fA819C117b99F838bDc34D663FE1DF3b69Ab82
+transactions: 24 in 24 steps; sent a second time: none
+submitW4       0x0841cea4663bdc38dcf153691cfeaa36427be5b60463b37a2473df4d32399d9a 3 agree, 0 disagree, 2 idle  mask 10  readings 10,10,01,01
+claimW3        0x4bd4aa5dd703ceeac5cda6e35b1955691acd1190720af286bf11a65f4a5b4d41 3 agree, 0 disagree, 2 idle  drawn W4:W3  readings yes,yes,no,no
+
+exit 0

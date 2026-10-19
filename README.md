@@ -309,7 +309,39 @@ first line.
 
 ## Evidence
 
-The on-chain run is recorded here once it has run.
+Run on 19 October 2026 on GenLayer Studio (chain 61999) by `tests/on_chain/smoke.mjs`, from generated accounts funded from the
+Studio faucet, none of them anybody's wallet: **A**, **B**, **C** and **D** write works, **S** is a stranger who writes nothing and buys. **43 passed, 0 failed**; transactions: 24 in 24 steps; sent a second time: none.
+The whole log is `tests/on_chain/smoke-run.log`. W4 lists W1 and W2; the network agreed it draws on W1 and not W2 (mask 10), C proved W4 draws on the unlisted W3, and a 1 GEN sale paid 0.15 GEN to A, 0.15 GEN to C and 0.70 GEN to D in one transaction.
+
+- `lineage` deployed at [`0x9D0C87720e03D55f0C568a009c747eD9DA70be0d`](https://explorer-studio.genlayer.com/address/0x9D0C87720e03D55f0C568a009c747eD9DA70be0d)
+- `bookstall` deployed at [`0x43fA819C117b99F838bDc34D663FE1DF3b69Ab82`](https://explorer-studio.genlayer.com/address/0x43fA819C117b99F838bDc34D663FE1DF3b69Ab82)
+
+- the code deployed at 0x9D0C87720e03D55f0C568a009c747eD9DA70be0d is byte for byte contracts/lineage.py: 72235 bytes, sha256 9537e24cf1d39fb24c1e5c83f1059f78b0f6ae8929c5f3a7e64ba52c3795480c
+- the code deployed at 0x43fA819C117b99F838bDc34D663FE1DF3b69Ab82 is byte for byte contracts/fixtures/bookstall.py: 16236 bytes, sha256 572d03c59811196ae5a1f8025780e67d2429db0d74be5849f1b4462c2e810a15
+
+| step | by | transactions | votes |
+|---|---|---|---|
+| A, the deployer, names the Bookstall as Lineage's consumer | A | [0xef2eeb00…](https://explorer-studio.genlayer.com/tx/0xef2eeb00343d2271ff5212b3dc9ac833d3e5d2bb96394f1ffd9af07c0ee58777), [0x3e9a3d67…](https://explorer-studio.genlayer.com/tx/0x3e9a3d6702daac941e428cc18bc469c6057773d651b363831f0fde7767baa0cc), [0xd4d2c3d9…](https://explorer-studio.genlayer.com/tx/0xd4d2c3d9b3d58c59a2de315dc813801fcbad742c470763e07760dba4bcafbc83) | 3 agree, 0 disagree, 2 idle |
+| A deposits 0.2 GEN of credit, in a call that asks no model | A | [0x500e2d04…](https://explorer-studio.genlayer.com/tx/0x500e2d04116ff578f9b47ef48d7a5dd76bad2c45139cd8229ccca6875b95fe85) | 5 agree, 0 disagree, 0 idle |
+| B deposits 0.2 GEN of credit, in a call that asks no model | B | [0x9ff35d4f…](https://explorer-studio.genlayer.com/tx/0x9ff35d4fcf95b22a26e1ff071ac65785e2916da149c3674e10f54a81c60a35ba) | 5 agree, 0 disagree, 0 idle |
+| C deposits 0.25 GEN of credit, in a call that asks no model | C | [0x3fdf325e…](https://explorer-studio.genlayer.com/tx/0x3fdf325e9f8d6e78d62126e6e4be232b062a73567ca1ef4b48590bcd42aa1158) | 3 agree, 0 disagree, 2 idle |
+| D deposits 0.2 GEN of credit, in a call that asks no model | D | [0xdf397a93…](https://explorer-studio.genlayer.com/tx/0xdf397a93b92c7ffc16a2821b8e8fa3c96aca548062fd6f4055e9464740ea7a9f) | 3 agree, 0 disagree, 2 idle |
+| A registers W1, "Keeping a wild yeast starter", with no sources: nothing is asked and its lineage is empty | A | [0x52ecf1da…](https://explorer-studio.genlayer.com/tx/0x52ecf1da78796d4884a6d4093da670c922af51ffdfd4044ab2b250360452ded1) | 5 agree, 0 disagree, 0 idle |
+| B registers W2, "Plaiting an enriched loaf", with no sources: nothing is asked and its lineage is empty | B | [0x1cfc746f…](https://explorer-studio.genlayer.com/tx/0x1cfc746f3c7d4f7d6dc3c0fde80b15126c687cde6a785b974a7cdfb2cb0839a5) | 4 agree, 0 disagree, 1 idle |
+| C registers W3, "Dough hydration at a glance", with no sources: nothing is asked and its lineage is empty | C | [0x3988c616…](https://explorer-studio.genlayer.com/tx/0x3988c6166e753389b092776503e3a38f4887dba86b5113964a91919c44139f1c) | 3 agree, 0 disagree, 2 idle |
+| D registers W4 listing W1 and W2: the four askings agree on mask "10", W1 drawn on and W2 not | D | [0x0841cea4…](https://explorer-studio.genlayer.com/tx/0x0841cea4663bdc38dcf153691cfeaa36427be5b60463b37a2473df4d32399d9a) | 3 agree, 0 disagree, 2 idle |
+| S, who wrote nothing, claims W4 draws on W3 and is refused before any model is asked | S | [0x75fdeb2e…](https://explorer-studio.genlayer.com/tx/0x75fdeb2e338f1f32d0416db3ad0915dee2acc05071f36031797181522b77d82d) | 4 agree, 0 disagree, 1 idle |
+| A claims W4 draws on W1 and is refused: W4 lists it and its lineage round judged it | A | [0xb6140078…](https://explorer-studio.genlayer.com/tx/0xb61400784415982b09c18b3f5d1834f530f6bf16f6e56228f6607153b6d03778) | 5 agree, 0 disagree, 0 idle |
+| C claims W4 draws on W3: the four askings read it drawn, and W3 joins the royalty set | C | [0x4bd4aa5d…](https://explorer-studio.genlayer.com/tx/0x4bd4aa5dd703ceeac5cda6e35b1955691acd1190720af286bf11a65f4a5b4d41) | 3 agree, 0 disagree, 2 idle |
+| D offers W4 at 1 GEN; the Bookstall reads it judged on Lineage | D | [0x201e9bd5…](https://explorer-studio.genlayer.com/tx/0x201e9bd594d66ae7ee7d6bbc17a7438bc8abcb7f7ac06b1411f49ebdedbd7e6e) | 3 agree, 0 disagree, 2 idle |
+| S buys W4 for 1 GEN: 0.3 GEN of royalty split over A and C, 0.15 GEN each | S | [0x7d1472f5…](https://explorer-studio.genlayer.com/tx/0x7d1472f5048543739dd051fbe395124008d64439f8f17c8154b0c07562790054) | 3 agree, 0 disagree, 2 idle |
+| W1, which lists no source, sells at 0.5 GEN and its author is paid all of it | A S | [0x53e4802f…](https://explorer-studio.genlayer.com/tx/0x53e4802fba57fc8b29a6f90b739f8fe7fd752d8bef73d2b2192241d47d269db5), [0x17fe589a…](https://explorer-studio.genlayer.com/tx/0x17fe589a34b3c3076cb18f7dd728d8a50aea98382ff05efa4a3050adb6db1a5c) | 3 agree, 0 disagree, 2 idle |
+| B offers W2 at 0.5 GEN | B | [0x3464c7dc…](https://explorer-studio.genlayer.com/tx/0x3464c7dc3c5067ecb4bc7b34d5cf367751e30bfbee16c76e29d8bd9978f806d5) | 3 agree, 0 disagree, 2 idle |
+| B retracts W2: Lineage reads the Bookstall, finds it never sold, and its 0.2 GEN bond comes back to B's credit | B | [0x3752816a…](https://explorer-studio.genlayer.com/tx/0x3752816a6f20db10a454ccbf6161d3bfa9ef7ae85fc83b452760b75fdbeb7440) | 3 agree, 0 disagree, 2 idle |
+| S tries to buy the retracted W2: the Bookstall reads "retracted" from Lineage, refuses, and returns the 0.5 GEN | S | [0xd0ef14a6…](https://explorer-studio.genlayer.com/tx/0xd0ef14a64992b4cf9de383a8119b138a5ddacc466c177a205cb9fcb301721444) | 3 agree, 0 disagree, 2 idle |
+| D tries to retract W4 and Lineage refuses: the Bookstall says it was sold | D | [0x39ee9033…](https://explorer-studio.genlayer.com/tx/0x39ee90330104ee79059ac010baf77a9ad1dd83d3058b32035937720cd558bb8e) | 3 agree, 0 disagree, 2 idle |
+| B withdraws the 0.2 GEN its retracted work returned to credit | B | [0xa2d83eb0…](https://explorer-studio.genlayer.com/tx/0xa2d83eb086464c76dfaaab78728919f77730ab0a7a3be3deff4c4efa25ea1c6a) | 3 agree, 0 disagree, 2 idle |
+| C withdraws the 0.05 GEN claim bond its drawn claim left in credit | C | [0x5c4a8083…](https://explorer-studio.genlayer.com/tx/0x5c4a808311b58d6f929d8f6788007b7dfcbaec00d6432a5b3a2d29518c43d506) | 3 agree, 0 disagree, 2 idle |
 
 ## Licence
 
